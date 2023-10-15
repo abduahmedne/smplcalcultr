@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0%;
+            
+        }
+        body{
+            text-align: center;
+
+        }
+        #head-title{
+            background-color: rgb(184, 14, 14);
+            color: aliceblue;
+            width: 200px;
+            height: 70px;
+            border-radius: 20px;
+            margin-left: 220px;
+            margin-bottom: 20px;
+        }
+        input[type="button"] {
+            margin-bottom: 10px;
+            margin-left: 10Px;
+            width: 60px;
+            height: 60px;
+            font-size: 20px;
+            background-color:transparent ; 
+            color: rgb(11, 11, 11);
+            border-radius: black;
+            border-radius: 100px;
+        }
+        input[type="button"]:hover{
+            background-color: rgb(184, 14, 14);
+        }
+        #display{
+            width: auto;
+            height: 30px;
+            background-color: transparent;
+            border: transparent;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1 id="head-title">Simple Calculator</h1>
+    <input type="text" id="display" disabled ><br>
+
+    <!-- Buttons for calculator operations -->
+    <input type="button" value="1" onclick="appendToDisplay('1')">
+    <input type="button" value="2" onclick="appendToDisplay('2')">
+    <input type="button" value="3" onclick="appendToDisplay('3')">
+    <input type="button" value="+" onclick="appendToDisplay('+')"><br>
+    <input type="button" value="4" onclick="appendToDisplay('4')">
+    <input type="button" value="5" onclick="appendToDisplay('5')">
+    <input type="button" value="6" onclick="appendToDisplay('6')">
+    <input type="button" value="-" onclick="appendToDisplay('-')"><br>
+    <input type="button" value="7" onclick="appendToDisplay('7')">
+    <input type="button" value="8" onclick="appendToDisplay('8')">
+    <input type="button" value="9" onclick="appendToDisplay('9')">
+    <input type="button" value="*" onclick="appendToDisplay('*')"><br>
+    <input type="button" value="0" onclick="appendToDisplay('0')">
+    <input type="button" value="C" onclick="clearDisplay()">
+    <input type="button" value="=" onclick="calculateResult()">
+    <input type="button" value="/" onclick="appendToDisplay('/')"><br>
+
+    <script>
+        // Function to append characters to the display
+        function appendToDisplay(value) {
+            document.getElementById('display').value += value;
+        }
+
+        // Function to clear the display
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+
+        // Function to evaluate the expression and display the result
+        function calculateResult() {
+            var expression = document.getElementById('display').value;
+            var result = eval(expression); // Note: Using eval can be dangerous in real-world applications due to security risks.
+            document.getElementById('display').value = result;
+        }
+    </script>
+</body>
+
+</html>
